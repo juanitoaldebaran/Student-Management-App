@@ -23,7 +23,7 @@ public class BaseStudentDAO implements StudentDAO{
             statement.setString(2, studentData.getEmail());
             statement.setInt(3, studentData.getAge());
             statement.setFloat(4, studentData.getGPA());
-            statement.setString(5, studentData.getStudentClass());
+            statement.setString(5, studentData.getStudentClass().name());
 
             int rowsAffected = statement.executeUpdate();
 
@@ -48,16 +48,8 @@ public class BaseStudentDAO implements StudentDAO{
                             resultSet.getString("email"),
                             resultSet.getInt("age"),
                             resultSet.getFloat("gpa"),
-                            resultSet.getString("class")
+                            StudentClass.fromString(resultSet.getString("class"))
                     );
-                }
-
-                int rowsAffected = statement.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    System.out.println("Student Data successfully added!");
-                } else {
-                    System.out.println("Failed to add student data!");
                 }
             }
         }
@@ -78,13 +70,13 @@ public class BaseStudentDAO implements StudentDAO{
                            resultSet.getString("email"),
                            resultSet.getInt("age"),
                            resultSet.getFloat("gpa"),
-                           resultSet.getString("class")
+                           StudentClass.fromString(resultSet.getString("class"))
                     ));
                 }
             }
         }
 
-        return null;
+        return baseStudentData;
     }
 
     @Override

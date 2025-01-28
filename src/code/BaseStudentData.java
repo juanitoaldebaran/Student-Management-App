@@ -7,9 +7,9 @@ public class BaseStudentData implements StudentData{
     private String email;
     private int age;
     private float gpa;
-    private String studentClass;
+    private StudentClass studentClass;
 
-    public BaseStudentData(int id, String name, String email, int age, float gpa, String studentClass) {
+    public BaseStudentData(int id, String name, String email, int age, float gpa, StudentClass studentClass) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -75,12 +75,12 @@ public class BaseStudentData implements StudentData{
 
     //Getter
     @Override
-    public String getStudentClass() {
+    public StudentClass getStudentClass() {
         return studentClass;
     }
 
     //Setter
-    public void setStudentClass(String studentClass) {
+    public void setStudentClass(StudentClass studentClass) {
         this.studentClass = studentClass;
     }
 
