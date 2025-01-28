@@ -7,5 +7,5 @@ public interface StudentData {
      int getAge();
      float getGPA();
 
-     String getStudentClass();
+     StudentClass getStudentClass();
 }
